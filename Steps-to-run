@@ -1,0 +1,47 @@
+Step 1: Create a Free Ngrok Account
+
+1. Visit: https://dashboard.ngrok.com/signup
+2. Sign up for a free account.
+3. Verify your email address.
+
+Step 2: Get Your Authentication Token
+
+1. Log in to the Ngrok Dashboard.
+2. Navigate to Your Authtoken section.
+3. Copy your generated token.
+
+Example:
+
+YOUR_NGROK_TOKEN = "your_ngrok_auth_token"
+
+Step 3: Install Required Packages
+
+!pip install flask pyngrok
+
+Step 4: Configure Ngrok Token
+
+Add the following code before creating the public URL:
+
+from pyngrok import ngrok
+
+ngrok.set_auth_token("YOUR_NGROK_TOKEN")
+
+Step 5: Run the Application
+
+When the application starts, a public URL will be generated automatically:
+
+https://abcd1234.ngrok-free.app
+
+Open the generated URL in your browser to access the chatbot from anywhere.
+
+Example
+
+from pyngrok import ngrok
+
+ngrok.set_auth_token("YOUR_NGROK_TOKEN")
+
+public_url = ngrok.connect(5000)
+
+print("Open this URL:")
+print(public_url)
+
